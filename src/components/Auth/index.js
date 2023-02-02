@@ -18,7 +18,7 @@ export const Row = styled.div`
   width: 80%;
   margin-left: 10%;
 
-  @media (min-width: 630px) {
+  @media (min-width: 900px) {
     width: 100%;
     margin: 0;
   }

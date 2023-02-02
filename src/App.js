@@ -10,6 +10,7 @@ import {
 import { UserProvider } from './contexts/UserContext';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
+import { Register } from './pages/Register';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/sign-in" element={<Login/>} />
+            <Route path="/sign-up" element={<Register/>} />
             <Route index path="*" element={<Navigate to="/" />} />
           </Routes>
         </Router>

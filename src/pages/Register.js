@@ -5,39 +5,32 @@ import { Row } from '../components/Auth';
 import Input from '../components/Form/Input';
 import Button from '../components/Form/Button';
 import { Link, useNavigate } from 'react-router-dom';
-import UserContext from '../contexts/UserContext';
-import useSignIn from '../hooks/api/useSignIn';
 import { toast } from 'react-toastify';
+import useSignUp from '../hooks/api/useSignUp';
 
-export function Login() {
+export function Register() {
   const navigate = useNavigate();
-  const [ email, setEmail ] = useState('');
-  const [ password, setPassword ] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const { loadingSignIn, signIn } = useSignIn();
-
-  const { setUserData } = useContext(UserContext);
+  const { loadingSignUp, signUp } = useSignUp();
 
   async function submit(event) {
     event.preventDefault();
 
-    try {
-      const userData = await signIn(email, password);
-      setUserData(userData);
-      toast('Login realizado com sucesso!');
-      navigate('/dashboard');
-    } catch (err) {
-      toast('Não foi possível fazer o login!', {
-        position: 'top-right',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: 'dark',
-      });
+    if (password !== confirmPassword) {
+      toast('As senhas devem ser iguais!');
+    } else {
+      try {
+        await signUp(email, password);
+        toast('Inscrito com sucesso! Por favor, faça login.');
+        navigate('/sign-in');
+      } catch (error) {
+        toast('Não foi possível fazer o cadastro!');
+      }
     }
-  } 
+  }
 
   return (
     <Wrapper>
@@ -48,11 +41,12 @@ export function Login() {
         <form onSubmit={submit}>
           <Input label="E-mail" type="text" fullWidth value={email} onChange={e => setEmail(e.target.value)} />
           <Input label="Senha" type="password" fullWidth value={password} onChange={e => setPassword(e.target.value)} />
-          <Button type="submit" style={{ color: 'white', backgroundColor: '#90EE90' }} fullWidth disabled={loadingSignIn}>Entrar</Button>
+          <Input label="Repita sua senha" type="password" fullWidth value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
+          <Button type="submit" style={{ color: 'white', backgroundColor: '#90EE90' }} fullWidth disabled={loadingSignUp}>Inscrever</Button>
         </form>
       </Row>
       <Row>
-        <Link to="/sign-up" >Não possui login? Inscreva-se</Link>
+        <Link to="/sign-in" >Já está inscrito? Faça login</Link>
       </Row>
     </Wrapper>
   );
