@@ -37,7 +37,7 @@ const LogoStyle = styled.div`
   
   h1 {
     width: 150px;
-    margin-top: 6px;
+    margin-top: 14px;
   }
 
   * {
