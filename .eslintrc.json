@@ -3,7 +3,9 @@
         "browser": true,
         "es2021": true
     },
-    "extends": "plugin:react/recommended",
+    "extends": [
+      "plugin:react/recommended"
+    ],
     "overrides": [
     ],
     "parserOptions": {
@@ -14,9 +16,6 @@
         "react"
     ],
    "rules": {
-    "react/no-unknown-property": [
-      0
-    ],
     "react-hooks/exhaustive-deps": "off",
     "react-hooks/rules-of-hooks": "off",
     "indent": [

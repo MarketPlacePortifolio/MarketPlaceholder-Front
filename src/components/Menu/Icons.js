@@ -1,6 +1,5 @@
 import { animated, useSpring } from '@react-spring/web';
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { Bar } from './Bar';
 
 export function Icons({ children }) {

@@ -4,7 +4,7 @@ import { GiCutLemon } from 'react-icons/gi';
 import { animated, useSpring } from '@react-spring/web';
 import { Bar } from './Bar';
 
-export default function Logo({ size = 'small' }) {
+export default function Logo() {
   const [ hovered, setHovered ] = useState(false);
   const { scale } = useSpring({ 
     scale: hovered ? 1.2 : 1,
@@ -18,7 +18,6 @@ export default function Logo({ size = 'small' }) {
       style={{
         transform: scale.to(s => `scale(${s})`),
       }}
-      size={size}
     >
       <h1>
         Market Place
@@ -33,7 +32,8 @@ const LogoStyle = styled.div`
   font-family: 'Kaushan Script', cursive;
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
+  color: #90EE90;
   
   h1 {
     margin-top: 6px;

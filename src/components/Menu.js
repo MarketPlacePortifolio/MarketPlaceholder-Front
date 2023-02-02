@@ -2,9 +2,9 @@ import { animated, useSpring } from '@react-spring/web';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { BsFillCartFill } from 'react-icons/bs';
-import { Icons } from './Icons';
+import { Icons } from './Menu/Icons';
 import { useNavigate } from 'react-router-dom';
-import Logo from './Logo';
+import Logo from './Menu/Logo';
 
 export function Menu() {
   const navigate = useNavigate();
