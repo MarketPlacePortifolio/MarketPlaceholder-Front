@@ -20,9 +20,9 @@ export default function Logo() {
       }}
     >
       <h1>
-        Market Place
+        Market Placeholder
       </h1>
-      <GiCutLemon size={ 40 } onClick={ () => navigate('/') }/>
+      <GiCutLemon size={ 55 } onClick={ () => navigate('/') }/>
       <Bar hovered={ hovered } widthMax={ '210px' } />
     </LogoStyle>
   );
@@ -36,10 +36,12 @@ const LogoStyle = styled.div`
   color: #90EE90;
   
   h1 {
+    width: 150px;
     margin-top: 6px;
   }
 
   * {
-    margin-left: 10px;
+    margin-top: 10px;
+    margin-left: -4px;
   }
 `;

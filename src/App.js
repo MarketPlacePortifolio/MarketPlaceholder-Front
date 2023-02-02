@@ -11,6 +11,7 @@ import { UserProvider } from './contexts/UserContext';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
+import { Products } from './pages/Products';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" element={<Home/>} />
             <Route path="/sign-in" element={<Login/>} />
             <Route path="/sign-up" element={<Register/>} />
+            <Route path="/products" element={<Products/>} />
             <Route index path="*" element={<Navigate to="/" />} />
           </Routes>
         </Router>

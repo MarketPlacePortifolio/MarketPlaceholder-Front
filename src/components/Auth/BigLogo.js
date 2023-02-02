@@ -46,9 +46,9 @@ export default function BigLogo() {
       ref={ cardRef }
     >
       <h1>
-        Market Place
+        Market Placeholder
       </h1>
-      <GiCutLemon size={ 80 } onClick={ () => navigate('/') }/>
+      <GiCutLemon size={ 100 } onClick={ () => navigate('/') }/>
     </LogoStyle>
   );
 }
@@ -60,17 +60,18 @@ const LogoStyle = styled.div`
   align-items: center;
   justify-content: center;
   color: #90EE90;
-  width: 8ch;
+  width: 12ch;
   height: 8ch;
   will-change: transform;
   
   h1 {
     width: 150px;
+    margin: 0;
     margin-top: 6px;
   }
 
   * {
-    margin-left: 2px;
+    margin-left: 80px;
   }
 `;
 
