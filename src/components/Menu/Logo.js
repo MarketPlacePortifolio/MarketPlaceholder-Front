@@ -25,8 +25,8 @@ export default function Logo() {
       <h1>
         Market Placeholder
       </h1>
-      <GiCutLemon size={ 55 }/>
-      <Bar hovered={ hovered } widthMax={ '210px' } />
+      <GiCutLemon size={ 45 }/>
+      <Bar hovered={ hovered } widthMax={ '180px' } />
     </LogoStyle>
   );
 }
@@ -39,8 +39,9 @@ const LogoStyle = styled.div`
   color: #90EE90;
   
   h1 {
-    width: 150px;
+    width: 130px;
     margin-top: 14px;
+    font-size: 24px;
   }
 
   * {

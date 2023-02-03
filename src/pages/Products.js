@@ -7,10 +7,16 @@ export function Products() {
   return (
     <Wrapper>
       <Menu />
-      
+
       <Carousel 
-        products={[ 'imagem 1', 'imagem 2' ]}
+        products={[ 
+          { name: 'imagem 1', price: 1299, image: 'https://cdn.shopify.com/s/files/1/0526/4123/5093/products/2_2b8c973f-c165-472e-aa5e-46b469c48270.jpg?v=1672238827' }, 
+          { name: 'imagem 2', price: 2099, image: 'https://cdn.shopify.com/s/files/1/0526/4123/5093/products/2_2b8c973f-c165-472e-aa5e-46b469c48270.jpg?v=1672238827' }, 
+          { name: 'imagem 3', price: 1599, image: 'https://cdn.shopify.com/s/files/1/0526/4123/5093/products/2_2b8c973f-c165-472e-aa5e-46b469c48270.jpg?v=1672238827' }, 
+          { name: 'imagem 4', price: 1099, image: 'https://cdn.shopify.com/s/files/1/0526/4123/5093/products/2_2b8c973f-c165-472e-aa5e-46b469c48270.jpg?v=1672238827' },
+        ]}
       />
+      
     </Wrapper>
   );
 }
@@ -21,31 +27,4 @@ const Wrapper = styled.div`
   overflow: hidden;
   background: rgb(255,255,255);
   background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(240,255,240,1) 35%, #b6f2b6 100%);
-
-  .carousel {
-    margin-top: 82px;
-
-    button {
-      position: fixed;
-      z-index: 1;
-      border: none;
-      background: none;
-    }
-
-    div {
-      z-index: 0;
-      width: 100%;
-      height: 300px;
-      background-color: red;
-    }
-
-    .prev {
-      top: 212px;
-    }
-
-    .next {
-      top: 212px;
-      right: 0px;
-    }
-  }
 `;
