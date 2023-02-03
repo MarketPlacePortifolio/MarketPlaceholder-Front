@@ -12,6 +12,8 @@ import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import { Products } from './pages/Products';
+import { Profile } from './pages/Profile';
+import useToken from './hooks/useToken';
 
 function App() {
   return (
@@ -25,12 +27,29 @@ function App() {
             <Route path="/sign-in" element={<Login/>} />
             <Route path="/sign-up" element={<Register/>} />
             <Route path="/products" element={<Products/>} />
+            <Route path="/profile" element={
+              <ProtectedRouteGuard>
+                <Profile/>
+              </ProtectedRouteGuard>} 
+            />
             <Route index path="*" element={<Navigate to="/" />} />
           </Routes>
         </Router>
       </UserProvider>
     </div>
   );
+}
+
+function ProtectedRouteGuard({ children }) {
+  const token = useToken();
+
+  if (!token) {
+    return <Navigate to="/sign-in" />;
+  }
+
+  return <>
+    {children}
+  </>;
 }
 
 export default App;

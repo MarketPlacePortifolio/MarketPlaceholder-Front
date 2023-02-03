@@ -1,17 +1,21 @@
 import { animated, useSpring } from '@react-spring/web';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
+import { FaUserCircle } from 'react-icons/fa';
 import { BsFillCartFill } from 'react-icons/bs';
 import { Icons } from './Menu/Icons';
 import { useNavigate } from 'react-router-dom';
 import Logo from './Menu/Logo';
+import UserContext from '../contexts/UserContext';
 
-export function Menu() {
+export function Menu({ type }) {
   const navigate = useNavigate();
   const [ hovered, setHovered ] = useState(false);
   const { scale } = useSpring({ 
     scale: hovered ? 1.2 : 1,
   });
+
+  const { userData: userData } = useContext(UserContext);
 
   return (
     <MenuBar>
@@ -19,22 +23,38 @@ export function Menu() {
       
       <div className='options' >
         <Icons>
-          <BsFillCartFill size={ 30 } />
+          <BsFillCartFill size={ 40 } />
         </Icons>
         
-        <div className='bar' />
-
-        <animated.button
-          className='login'
-          onPointerOver = { () => setHovered(true) }
-          onPointerOut = { () => setHovered(false) }
-          style={{
-            transform: scale.to(s => `scale(${s})`),
-          }}
-          onClick={ () => navigate('/sign-in') }
-        >
-          Login
-        </animated.button>
+        {type !== 'profile' ? <>
+          <div className='bar' />
+          {!userData ? 
+            <animated.button
+              className='login'
+              onPointerOver = { () => setHovered(true) }
+              onPointerOut = { () => setHovered(false) }
+              style={{
+                transform: scale.to(s => `scale(${s})`),
+              }}
+              onClick={ () => navigate('/sign-in') }
+            >
+              Login
+            </animated.button> : 
+            !userData.image ? 
+              <Icons>
+                <FaUserCircle size={ 40 } onClick={ () => navigate('/profile')} />
+              </Icons> : 
+              <Icons
+                onClick={ () => navigate('/profile')}
+              >
+                <img src={userData.image} alt='profilephoto' 
+                  style={{
+                    borderRadius: '50%',
+                  }}
+                />
+              </Icons>
+          }
+        </> : '' }
       </div>
     </MenuBar>
   );
@@ -81,9 +101,10 @@ const MenuBar = styled.div`
 
   .bar {
     width: 3px;
-    height: 30px;
+    height: 40px;
     background-color: #90EE90;
     border-radius: 50px;
+    margin-top: 10px;
   }
 
   .options {

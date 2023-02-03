@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import { GiCutLemon } from 'react-icons/gi';
 import { animated, useSpring } from '@react-spring/web';
 import { Bar } from './Bar';
+import { useNavigate } from 'react-router-dom';
 
 export default function Logo() {
+  const navigate = useNavigate();
   const [ hovered, setHovered ] = useState(false);
   const { scale } = useSpring({ 
     scale: hovered ? 1.2 : 1,
@@ -15,6 +17,7 @@ export default function Logo() {
       as={animated.div}
       onPointerOver = { () => setHovered(true) }
       onPointerOut = { () => setHovered(false) }
+      onClick={ () => navigate('/products') }
       style={{
         transform: scale.to(s => `scale(${s})`),
       }}
@@ -22,7 +25,7 @@ export default function Logo() {
       <h1>
         Market Placeholder
       </h1>
-      <GiCutLemon size={ 55 } onClick={ () => navigate('/') }/>
+      <GiCutLemon size={ 55 }/>
       <Bar hovered={ hovered } widthMax={ '210px' } />
     </LogoStyle>
   );
