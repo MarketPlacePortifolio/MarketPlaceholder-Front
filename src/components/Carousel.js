@@ -37,7 +37,7 @@ export function Carousel({ products }) {
           transform: scalePrev.to(s => `scale(${s})`),
         }}
       >
-        <MdKeyboardArrowLeft size={ 40 } color='#6dc76d' />
+        <MdKeyboardArrowLeft size={ 50 } color='#6dc76d' />
       </animated.button>
       <animated.button 
         className='next'
@@ -48,7 +48,7 @@ export function Carousel({ products }) {
           transform: scaleNext.to(s => `scale(${s})`),
         }}
       >
-        <MdKeyboardArrowRight size={ 40 } color='#6dc76d' />
+        <MdKeyboardArrowRight size={ 50 } color='#6dc76d' />
       </animated.button>
       <div>
         {width >= 900 ?
@@ -56,7 +56,8 @@ export function Carousel({ products }) {
             <div>
               <img src={products[index].image} alt={index}/>
               <h1>{products[index].name}</h1>
-              <p>{('R$ '+ Number(products[index].price) / 100).replace('.', ',')}</p>
+              <h2>{(Number(products[index].promotion * 100) + '% off').replace('.', ',')}</h2>
+              <p>{('R$ '+ Math.round(((Number(products[index].price) / 100) * ( 1 - Number(products[index].promotion)))).toFixed(2)).replace('.', ',')}</p>
               <div />
             </div>
             <div>
@@ -64,13 +65,15 @@ export function Carousel({ products }) {
                 <>
                   <img src={products[0].image} alt={0}/>
                   <h1>{products[0].name}</h1>
-                  <p>{('R$ '+ Number(products[0].price) / 100).replace('.', ',')}</p>
+                  <h2>{(Number(products[0].promotion * 100) + '% off').replace('.', ',')}</h2>
+                  <p>{('R$ '+ Math.round(((Number(products[0].price) / 100) * ( 1 - Number(products[0].promotion)))).toFixed(2)).replace('.', ',')}</p>
                   <div />
                 </>
                 : <>
                   <img src={products[index + 1].image} alt={index + 1}/>
                   <h1>{products[index + 1].name}</h1>
-                  <p>{('R$ '+ Number(products[index + 1].price) / 100).replace('.', ',')}</p>
+                  <h2>{(Number(products[index + 1].promotion * 100) + '% off').replace('.', ',')}</h2>
+                  <p>{('R$ '+ Math.round(((Number(products[index + 1].price) / 100) * ( 1 - Number(products[index + 1].promotion)))).toFixed(2)).replace('.', ',')}</p>
                   <div />
                 </>
               }
@@ -81,19 +84,22 @@ export function Carousel({ products }) {
                   <>
                     <img src={products[1].image} alt={1}/>
                     <h1>{products[1].name}</h1>
-                    <p>{('R$ '+ Number(products[1].price) / 100).replace('.', ',')}</p>
+                    <h2>{(Number(products[1].promotion * 100) + '% off').replace('.', ',')}</h2>
+                    <p>{('R$ '+ Math.round(((Number(products[1].price) / 100) * ( 1 - Number(products[1].promotion)))).toFixed(2)).replace('.', ',')}</p>
                     <div />
                   </>
                   : <>
                     <img src={products[0].image} alt={0}/>
                     <h1>{products[0].name}</h1>
-                    <p>{('R$ '+ Number(products[0].price) / 100).replace('.', ',')}</p>
+                    <h2>{(Number(products[0].promotion * 100) + '% off').replace('.', ',')}</h2>
+                    <p>{('R$ '+ Math.round(((Number(products[0].price) / 100) * ( 1 - Number(products[0].promotion)))).toFixed(2)).replace('.', ',')}</p>
                     <div />
                   </> 
                 : <>
                   <img src={products[index + 2].image} alt={index + 2}/>
                   <h1>{products[index + 2].name}</h1>
-                  <p>{('R$ '+ Number(products[index + 2].price) / 100).replace('.', ',')}</p>
+                  <h2>{(Number(products[index + 2].promotion * 100) + '% off').replace('.', ',')}</h2>
+                  <p>{('R$ '+ Math.round(((Number(products[index + 2].price) / 100) * ( 1 - Number(products[index + 2].promotion)))).toFixed(2)).replace('.', ',')}</p>
                   <div />
                 </> 
               }
@@ -102,7 +108,8 @@ export function Carousel({ products }) {
             <div>
               <img src={products[index].image} alt={index}/>
               <h1>{products[index].name}</h1>
-              <p>{('R$ '+ Number(products[index].price) / 100).replace('.', ',')}</p>
+              <h2>{(Number(products[index].promotion * 100) + '% off').replace('.', ',')}</h2>
+              <p>{('R$ '+ Math.round(((Number(products[index].price) / 100) * ( 1 - Number(products[index].promotion)))).toFixed(2)).replace('.', ',')}</p>
               <div />
             </div>
             <div>
@@ -110,13 +117,15 @@ export function Carousel({ products }) {
                 <>
                   <img src={products[0].image} alt={0}/>
                   <h1>{products[0].name}</h1>
-                  <p>{('R$ '+ Number(products[0].price) / 100).replace('.', ',')}</p>
+                  <h2>{(Number(products[0].promotion * 100) + '% off').replace('.', ',')}</h2>
+                  <p>{('R$ '+ Math.round(((Number(products[0].price) / 100) * ( 1 - Number(products[0].promotion)))).toFixed(2)).replace('.', ',')}</p>
                   <div />
                 </>
                 : <>
                   <img src={products[index + 1].image} alt={index + 1}/>
                   <h1>{products[index + 1].name}</h1>
-                  <p>{('R$ '+ Number(products[index + 1].price) / 100).replace('.', ',')}</p>
+                  <h2>{(Number(products[index + 1].promotion * 100) + '% off').replace('.', ',')}</h2>
+                  <p>{('R$ '+ Math.round(((Number(products[index + 1].price) / 100) * ( 1 - Number(products[index + 1].promotion)))).toFixed(2)).replace('.', ',')}</p>
                   <div />
                 </>
               }
@@ -125,7 +134,8 @@ export function Carousel({ products }) {
             <div>
               <img src={products[index].image} alt={index}/>
               <h1>{products[index].name}</h1>
-              <p>{('R$ '+ Number(products[index].price) / 100).replace('.', ',')}</p>
+              <h2>{(Number(products[index].promotion * 100) + '% off').replace('.', ',')}</h2>
+              <p>{('R$ '+ Math.round(((Number(products[index].price) / 100) * ( 1 - Number(products[index].promotion)))).toFixed(2)).replace('.', ',')}</p>
               <div />
             </div>
         }
@@ -170,11 +180,21 @@ const CarouselContainer = styled.div`
       h1 {
         font-family: 'Rubik Mono One', sans-serif;
         font-size: 18px;
-        color: black;
+        color: #294a2a;
         position: absolute;
         bottom: 40px;
         left: 20px;
         z-index: 2;
+      }
+
+      h2 {
+        z-index: 2;
+        position: absolute;
+        bottom: 40px;
+        right: 20px;
+        font-size: 14px;
+        font-family: 'Rubik Mono One', sans-serif;
+        color: #6dc76d;
       }
 
       p {
@@ -184,7 +204,7 @@ const CarouselContainer = styled.div`
         right: 20px;
         font-size: 30px;
         font-family: 'Rubik Mono One', sans-serif;
-        color: red;
+        color: #c7100a;
       }
 
       div {

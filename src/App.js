@@ -32,6 +32,11 @@ function App() {
                 <Profile/>
               </ProtectedRouteGuard>} 
             />
+            <Route path="/newproduct" element={
+              <ProtectedRouteGuard>
+                <Profile/>
+              </ProtectedRouteGuard>} 
+            />
             <Route index path="*" element={<Navigate to="/" />} />
           </Routes>
         </Router>

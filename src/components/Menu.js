@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import Logo from './Menu/Logo';
 import UserContext from '../contexts/UserContext';
 
-export function Menu({ type }) {
+export function Menu({ type, colored }) {
   const navigate = useNavigate();
   const [ hovered, setHovered ] = useState(false);
   const { scale } = useSpring({ 
@@ -18,7 +18,7 @@ export function Menu({ type }) {
   const { userData: userData } = useContext(UserContext);
 
   return (
-    <MenuBar>
+    <MenuBar colored={ colored } >
       <Logo />
       
       <div className='options' >
@@ -65,7 +65,7 @@ const MenuBar = styled.div`
   top: 0;
   z-index: 2;
   width: 80%;
-  height: 50px;
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -73,8 +73,8 @@ const MenuBar = styled.div`
   color: #90EE90;
   font-weight: 400;
   font-size: 30px;
-  /* background-color: white;
-  box-shadow: white 2px 2px 1px, white 2px 4px 2px, white 2px 8px 4px; */
+  background-color: ${props => props.colored ? 'white' : 'none'};
+  /* box-shadow: white 2px 2px 1px, white 2px 4px 2px, white 2px 8px 4px; */
 
   a {
     color: #90EE90;

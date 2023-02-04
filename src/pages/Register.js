@@ -10,12 +10,13 @@ import useSignUp from '../hooks/api/useSignUp';
 
 export function Register() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [ name, setName ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ password, setPassword ] = useState('');
+  const [ confirmPassword, setConfirmPassword ] = useState('');
 
   const { loadingSignUp, signUp } = useSignUp();
-
+  
   async function submit(event) {
     event.preventDefault();
 
@@ -23,7 +24,7 @@ export function Register() {
       toast('As senhas devem ser iguais!');
     } else {
       try {
-        await signUp(email, password);
+        await signUp(name, email, password);
         toast('Inscrito com sucesso! Por favor, faça login.');
         navigate('/sign-in');
       } catch (error) {
@@ -39,6 +40,7 @@ export function Register() {
       </Row>
       <Row>
         <form onSubmit={submit}>
+          <Input label="Nome" type="text" fullWidth value={name} onChange={e => setName(e.target.value)} />
           <Input label="E-mail" type="text" fullWidth value={email} onChange={e => setEmail(e.target.value)} />
           <Input label="Senha" type="password" fullWidth value={password} onChange={e => setPassword(e.target.value)} />
           <Input label="Repita sua senha" type="password" fullWidth value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />

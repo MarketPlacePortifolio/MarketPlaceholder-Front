@@ -17,6 +17,7 @@ export const Row = styled.div`
   justify-content: flex-start;
   width: 80%;
   margin-left: 10%;
+  overflow-x: hidden;
 
   @media (min-width: 900px) {
     width: 100%;

@@ -48,7 +48,7 @@ export function Login() {
         <form onSubmit={submit}>
           <Input label="E-mail" type="text" fullWidth value={email} onChange={e => setEmail(e.target.value)} />
           <Input label="Senha" type="password" fullWidth value={password} onChange={e => setPassword(e.target.value)} />
-          <Button type="submit" style={{ color: 'white', backgroundColor: '#90EE90' }} fullWidth disabled={loadingSignIn}>Entrar</Button>
+          <Button type="submit" style={{ color: 'white', backgroundColor: '#90EE90' }} fullWidth disabled={loadingSignIn} >Entrar</Button>
         </form>
       </Row>
       <Row>

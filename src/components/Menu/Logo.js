@@ -40,12 +40,12 @@ const LogoStyle = styled.div`
   
   h1 {
     width: 130px;
-    margin-top: 14px;
+    margin-bottom: 8px;
     font-size: 24px;
   }
 
   * {
-    margin-top: 10px;
+    margin-bottom: 6px;
     margin-left: -4px;
   }
 `;
