@@ -16,6 +16,7 @@ export function Menu({ type, colored }) {
   });
 
   const { userData: userData } = useContext(UserContext);
+  console.log(userData);
 
   return (
     <MenuBar colored={ colored } >
@@ -40,18 +41,12 @@ export function Menu({ type, colored }) {
             >
               Login
             </animated.button> : 
-            !userData.image ? 
+            !userData.user.image ? 
               <Icons>
-                <FaUserCircle size={ 40 } onClick={ () => navigate('/profile')} />
+                <FaUserCircle size={ 50 } onClick={ () => navigate('/profile')} />
               </Icons> : 
-              <Icons
-                onClick={ () => navigate('/profile')}
-              >
-                <img src={userData.image} alt='profilephoto' 
-                  style={{
-                    borderRadius: '50%',
-                  }}
-                />
+              <Icons>
+                <img src={userData.user.image} alt='profilephoto' onClick={ () => navigate('/profile') } />
               </Icons>
           }
         </> : '' }
@@ -74,7 +69,6 @@ const MenuBar = styled.div`
   font-weight: 400;
   font-size: 30px;
   background-color: ${props => props.colored ? 'white' : 'none'};
-  /* box-shadow: white 2px 2px 1px, white 2px 4px 2px, white 2px 8px 4px; */
 
   a {
     color: #90EE90;
@@ -101,10 +95,10 @@ const MenuBar = styled.div`
 
   .bar {
     width: 3px;
-    height: 40px;
+    height: 60px;
     background-color: #90EE90;
     border-radius: 50px;
-    margin-top: 10px;
+    margin-top: 40px;
   }
 
   .options {
@@ -113,5 +107,10 @@ const MenuBar = styled.div`
     * {
       margin: 0 10px;
     }
+  }
+
+  img {
+    border-radius: 50%;
+    width: 60px;
   }
 `;

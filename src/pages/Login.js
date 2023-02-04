@@ -11,6 +11,7 @@ import { toast } from 'react-toastify';
 
 export function Login() {
   const navigate = useNavigate();
+  const [ image, setImage ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
 
@@ -22,7 +23,7 @@ export function Login() {
     event.preventDefault();
 
     try {
-      const userData = await signIn(email, password);
+      const userData = await signIn(email, password, image);
       setUserData(userData);
       toast('Login realizado com sucesso!');
       navigate('/products');

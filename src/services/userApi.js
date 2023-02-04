@@ -5,7 +5,11 @@ export async function signUp(name, email, password) {
   return response.data;
 }
 
-export async function userUpdate(name, email, image) {
-  const response = await api.update('/users', { name, email, image });
+export async function userUpdate({ token, body }) {
+  const response = await api.put('/users', body, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
   return response.data;
 }

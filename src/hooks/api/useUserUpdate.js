@@ -6,12 +6,14 @@ export default function useUserUpdate() {
   const {
     loading: userUpdateLoading,
     error: userUpdateError,
+    data: userUpdateData,
     act: userUpdate,
   } = useAsync(userApi.userUpdate, false);
 
   return {
     userUpdateLoading,
     userUpdateError,
+    userUpdateData,
     userUpdate,
   };
 }

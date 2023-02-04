@@ -13,7 +13,7 @@ import useUserUpdate from '../hooks/api/useUserUpdate';
 import { toast } from 'react-toastify';
 
 export function Profile() {
-  const { userData: userData } = useContext(UserContext); 
+  const { setUserData, userData: userData } = useContext(UserContext); 
   const [ image, setImage ] = useState([userData.user.image]);
   const [ name, setName ] = useState(userData.user.name);
   const [ email, setEmail ] = useState(userData.user.email);
@@ -29,11 +29,10 @@ export function Profile() {
     event.preventDefault();
 
     try {
-      await userUpdate(name, email, image[0]);
-      toast('Salvo com sucesso!');
-      navigate('/');
+      const userUpdateData = await userUpdate({ token: userData.token, body: { name: name, email: email, image: image[0] } });
+      setUserData(userUpdateData);
+      toast('Salvo com sucesso! Faça login para continuar.');
     } catch (error) {
-      console.log(error);
       toast('Não foi possível salvar suas alterações!');
     }
   }
